@@ -5,12 +5,12 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class Word {
-    String word;
-    String word_en;
-    String type;
-    ArrayList<String> singular;
-    ArrayList<String> plural;
-    ArrayList<Definition> definitions;
+    public String word;
+    public String word_en;
+    public String type;
+    public ArrayList<String> singular;
+    public ArrayList<String> plural;
+    public ArrayList<Definition> definitions;
 
     @Override
     public String toString() {

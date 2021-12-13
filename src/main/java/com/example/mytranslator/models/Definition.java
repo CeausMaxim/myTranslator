@@ -5,10 +5,10 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class Definition {
-    String dict;
-    String dictType;
-    Integer year;
-    ArrayList<String> text;
+    public String dict;
+    public String dictType;
+    public Integer year;
+    public ArrayList<String> text;
 
     @Override
     public String toString() {
