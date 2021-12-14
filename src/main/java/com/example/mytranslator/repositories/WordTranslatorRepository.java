@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class WordTranslatorRepository {
     private Gson gson = new Gson();
@@ -68,13 +69,13 @@ public class WordTranslatorRepository {
         }
     }
 
-    public boolean deleteDefinitionForWord(String word, String language, Definition definition){
+    public boolean deleteDefinitionForWord(String word, String language, Definition dictionary, String dictType){
         String fileName = "src/main/resources/translations/" +  language + "/"  + word + ".json";
         try {
             Reader reader = Files.newBufferedReader(Paths.get(fileName));
             Word wordModel = gson.fromJson(reader, Word.class);
             reader.close();
-            wordModel.definitions.remove(definition); // not work
+            wordModel.definitions.remove(dictionary);
             try {
                 Writer writer = new FileWriter(fileName);
                 gson.toJson(wordModel, writer);
@@ -86,19 +87,19 @@ public class WordTranslatorRepository {
         } catch (Exception e) {
             return false;
         }
+    }
 
-//        ArrayList<String> list = new ArrayList<String>();
+//        ArrayList<String> text = new ArrayList<String>();
 //        JSONArray jsonArray = (JSONArray)jsonObject;
 //        int len = jsonArray.length();
 //        // Для прохода по массиву
 //        if (jsonArray != null) {
 //            for (int i=0;i<len;i++){
-//                list.add(jsonArray.get(i).toString());
+//                text.add(jsonArray.get(i).toString());
 //            }
 //        }
 //        //Удаление по позиции
-//        list.remove(position);
+//        text.remove(position);
 //        //Воссоздание json массива
-//        JSONArray jsArray = new JSONArray(list);
-  }
+//        JSONArray jsArray = new JSONArray(text);
 }
