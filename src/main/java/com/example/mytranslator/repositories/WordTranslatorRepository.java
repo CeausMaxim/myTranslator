@@ -26,14 +26,17 @@ public class WordTranslatorRepository {
         }
     }
 
-    public String translateSentences(String word, String language){
+    public String translateSentences(String sentence, String fromLanguage, String toLanguage){
+        // Add path for sentence. From and to Language
+        String filenameFrom = "src/main/resources/translations/" + fromLanguage + "/cat.json";
+        String filenameTo = "src/main/resources/translations/" + toLanguage + "/pisica.json";
         try {
-            Reader reader = Files.newBufferedReader(Paths.get(fileName));
+            Reader reader = Files.newBufferedReader(Paths.get(toLanguage));
             Word wordModel = gson.fromJson(reader, Word.class);
             reader.close();
             return wordModel.toString();
         } catch (Exception e) {
-            return "word not found";
+            return "sentence not found";
         }
     }
 
