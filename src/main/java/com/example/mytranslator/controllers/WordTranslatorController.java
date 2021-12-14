@@ -29,4 +29,14 @@ public class WordTranslatorController {
     public boolean addDefinitionForWord(@PathVariable String word, @PathVariable String language, @RequestBody Definition definition){
         return wordTranslatorRepository.addDefinitionForWord(word, language, definition);
     }
+
+    @DeleteMapping(path = "translate/word/{language}/{word}")
+    public boolean deleteDefinitionForWord(@PathVariable String word, @PathVariable String language, @RequestBody Definition definition){
+        return wordTranslatorRepository.deleteDefinitionForWord(word, language, definition);
+    }
+
+    @GetMapping(path = "translate/word/{language}/{word}")
+    public String getDefinitionsForWord(@PathVariable String word, @PathVariable String language){
+        return wordTranslatorRepository.getDefinitionsForWord(word, language);
+    }
 }
