@@ -86,5 +86,19 @@ public class WordTranslatorRepository {
         } catch (Exception e) {
             return false;
         }
+
+//        ArrayList<String> list = new ArrayList<String>();
+//        JSONArray jsonArray = (JSONArray)jsonObject;
+//        int len = jsonArray.length();
+//        // Для прохода по массиву
+//        if (jsonArray != null) {
+//            for (int i=0;i<len;i++){
+//                list.add(jsonArray.get(i).toString());
+//            }
+//        }
+//        //Удаление по позиции
+//        list.remove(position);
+//        //Воссоздание json массива
+//        JSONArray jsArray = new JSONArray(list);
   }
 }
