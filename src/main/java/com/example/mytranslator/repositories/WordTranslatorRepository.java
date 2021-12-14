@@ -26,6 +26,17 @@ public class WordTranslatorRepository {
         }
     }
 
+    public String translateSentences(String word, String language){
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get(fileName));
+            Word wordModel = gson.fromJson(reader, Word.class);
+            reader.close();
+            return wordModel.toString();
+        } catch (Exception e) {
+            return "word not found";
+        }
+    }
+
     public boolean addWord(Word word, String language){
         String fileName = "src/main/resources/translations/" +  language + "/"  + word.word + ".json";
         try {
